@@ -1,7 +1,9 @@
 import requests
 import json
+import os
+
 client_id = 'u-s4t2ud-450e395d8d86e115f4dc21269519cb43b74411becbd493fc8262d5df3861bdb9'
-client_secret = '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'
+client_secret = os.environ['HACK_SECRECT']
 token_url = 'https://api.intra.42.fr/oauth/token'
 data = {
 	'grant_type': 'client_credentials',
@@ -16,8 +18,8 @@ if response.status_code == 200:
 	}
 	users = []
 	pageN = 1
-	while True:
-		response = requests.get('https://api.intra.42.fr/v2/campus/35/users', params={'page': pageN}, headers=headers)
+	while pageN < 29:
+		response = requests.get('https://api.intra.42.fr/v2/campus/71/users', params={'page': pageN}, headers=headers)
 		if response.status_code != 200:
 			break
 		data = response.json()
