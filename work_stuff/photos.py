@@ -6,17 +6,18 @@ cleanData = []
 for x in data:
 	link = x['image']['link']
 	kind = x['kind']
-	is_student = False
+	# is_student = True
 	# if kind != 'student':
 	# 	is_student = False
+	is_student = False
 	name = x['login']
 	if link != None:
 			entry = {}
-			entry['image_path'] = '/kaggle/input/batata/images/' + name + '.jpg'
+			entry['image_path'] = '/kaggle/input/0x2ahack-data/images/' + name + '.jpg'
 			entry['is_student'] = is_student
 			cleanData.append(entry)
 			entry2 = {}
-			entry2['image_path'] = '/kaggle/input/batata/images/' + name + '_mirrored' + '.jpg'
+			entry2['image_path'] = '/kaggle/input/0x2ahack-data/images/' + name + '_mirrored' + '.jpg'
 			entry2['is_student'] = is_student
 			cleanData.append(entry2)
 f.close()
